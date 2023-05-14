@@ -50,3 +50,39 @@ mysql -u root -p
 mysql --protocol=tcp -h localhost -P 3307 -u root -p
 
 ```
+
+9. Remove all container
+
+```js
+docker rm $(docker ps -a -q)
+```
+
+10. Delete all volumes
+
+```js
+docker volume rm $(docker volume ls -q)
+```
+
+11. Dig(DNS lookup utility)
+
+```js
+dig todo-app-network-alias
+```
+
+12. Create network
+
+```js
+docker network create demo
+```
+
+13. Show all networks
+
+```js
+docker network ls
+```
+
+14. Remove network
+
+```js
+docker network rm network_name
+```
