@@ -20,6 +20,8 @@ services:
             MYSQL_USER: root
             MYSQL_PASSWORD: root
             MYSQL_DB: todoDB
+        networks:
+            - trandung
     mysql_db:
         image: mysql:latest
         container_name: mysql-container
@@ -30,6 +32,8 @@ services:
             MYSQL_DATABASE: todoDB
         volumes:
             - mysql-database:/var/lib/mysql
+        networks:
+            - trandung
     phpmyadmin:
         image: phpmyadmin:latest
         restart: always
@@ -38,5 +42,9 @@ services:
         environment:
             - PMA_ARBITRARY=1
             - PMA_HOST=mysql_db
+        networks:
+            - trandung
 volumes:
     mysql-database:
+networks:
+    trandung:
