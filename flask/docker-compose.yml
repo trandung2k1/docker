@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+    app:
+        image: trandung2001/flask:v1
+        container_name: flask-container
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 5000:5000
+        environment:
+            FLASK_DEBUG: 1
+        volumes:
+            - './:/app'
+        networks:
+            - trandung
+networks:
+    trandung:
