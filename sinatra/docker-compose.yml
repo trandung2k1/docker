@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    backend:
+        container_name: sinatra-container
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - '3000:3000'
+        volumes:
+            - '.:/app'
+        networks:
+            - trandung
+networks:
+    trandung:
