@@ -1,11 +1,4 @@
 <?php
-//Host local
-// $host = "localhost";
-// $username = "root";
-// $password = "";
-// $database_name = "mydb";
-
-//Host docker
 $host = "mysql_db";
 $username = "root";
 $password = "root";
