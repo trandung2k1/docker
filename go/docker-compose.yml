@@ -1,4 +1,5 @@
-version: '3.8'
+---
+version: '3.7'
 services:
     app:
         container_name: gin-container
@@ -6,9 +7,11 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - 3000:3000
+            - '8080:8080'
         volumes:
-            - .:/app
+            - ./:/app
+        environment:
+            PORT: '8080'
         networks:
             - trandung
 networks:
