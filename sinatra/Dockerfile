@@ -1,11 +1,13 @@
-FROM ruby:3.1.2-buster
+FROM ruby:2.7
 
 WORKDIR /app
 
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle install --jobs 20 --retry 5
+
 COPY . .
 
-RUN gem install puma sinatra
+EXPOSE 4567
 
-EXPOSE 3000
-
-CMD ruby app.rb
+CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]
